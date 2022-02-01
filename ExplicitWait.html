@@ -1,0 +1,166 @@
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+<style>
+.btn {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.btn-success {background-color: #008CBA;} /* Blue */
+.btn-primary {background-color: #f44336;} /* Red */ 
+.btn-display {background-color: #e7e7e7; color: black;} /* Gray */ 
+.btn-checkbox {background-color: #555555;} /* Black */
+</style>
+</head>
+
+	<body class="fixed-nav sticky-footer" id="page-top" onload="current();seturl();"><!--Second header ender-->
+
+		<!--second header finisher-->
+
+		<div class="content-wrapper">
+			<div class="container-fluid">
+				<!-- Breadcrumbs-->
+
+				<div class="row">
+					<div class="col-lg-8">								
+
+						<div class="card mb-3">
+							<div class="card-header">
+								<i class="headericon"></i> <h1 class="title" title='ExplicitlyWait Practice page'>ExplicitlyWait Practice page</h1>
+							</div>
+
+							<div align=left style=padding:20px;> 
+
+								<button class = "btn btn-success" id='alert' onclick="setTimeout(alertme, 5000);alertcount();">Click me, to Open an alert after 5 seconds</button><span > &ensp; &ensp;&ensp; &ensp;</span><span > Alert opens in : </span><span id="alertcount">  5</span> Seconds</p>
+
+								<p> Selenium Webdriver will be populated inplace of "site" <span id="h2countdowntimer">10 </span> Seconds</p>
+								<button id='populate-text' class = "btn btn-primary" onclick="setTimeout(h2, 10000);h2count();">Change Text to Selenium Webdriver</button>
+								<span>&ensp; &ensp;&ensp;</span>
+								<h2 id='h2' class='target-text' >I Will be Change</h2>
+								<br>
+
+
+
+								<p> The button will be Displayed in <span id="hidecountdowntimer"> 10 </span> Seconds</p>
+								<button id='display-other-button' class = "btn btn-display" onclick="setTimeout(display, 10000);hidecount();hide();">Display button after 10 seconds</button>
+								<button id='hidden' hidden onclick="setTimeout(hide, 10000);">Enabled</button>
+								<br><br><br>
+
+
+
+								<p> The button will be enabled in <span id="enablecountdowntimer"> 10 </span> Seconds</p>
+								<button id='enable-button' class = "btn btn-primary-display" onclick="setTimeout(enable, 10000);enablecount();disable();">Enable button after 10 seconds</button>
+								<button id='disable' disabled= 'false';onclick="setTimeout(enable, 10000);">Button</button>
+								<br><br><br>
+
+
+
+								<p> The checkbox will be checked in <span id="countdowntimer"> 10 </span> Seconds</p>
+
+
+								<button id='checkbox' type="button" class = "btn btn-checkbox btn-xs" onclick="setTimeout(myFunction, 10000); count();uncheck();">Check Checkbox after 10 seconds</button>
+								<input type='checkbox' id='ch' >checkbox
+
+
+								<p id="demo"></p>
+							</div>
+
+							<script>
+								function alertme() {
+									alert("I got opened after 5 secods");
+								}
+
+								function alertcount(){
+									var timeleft = 5;
+									var downloadTimer = setInterval(function(){
+										timeleft--;
+										document.getElementById("alertcount").textContent = timeleft;
+										if(timeleft <= 0)
+											clearInterval(downloadTimer);
+									},1000);
+								}
+
+								function myFunction() {
+									document.getElementById("ch").click()
+								}
+								function enable() {
+									document.getElementById("disable").disabled=false;
+									document.getElementById("disable").style.color = "red";
+									document.getElementById("disable").style.backgroundColor = "yellow";
+								}
+
+								function display() {
+									document.getElementById("hidden").hidden=false;
+
+								}
+								function count(){
+									var timeleft = 10;
+									var downloadTimer = setInterval(function(){
+										timeleft--;
+										document.getElementById("countdowntimer").textContent = timeleft;
+										if(timeleft <= 0)
+											clearInterval(downloadTimer);
+									},1000);
+								}
+
+								function enablecount(){
+									var timeleft = 10;
+									var downloadTimer = setInterval(function(){
+										timeleft--;
+										document.getElementById("enablecountdowntimer").textContent = timeleft;
+										if(timeleft <= 0)
+											clearInterval(downloadTimer);
+									},1000);
+								}
+								function hidecount(){
+									var timeleft = 10;
+									var downloadTimer = setInterval(function(){
+										timeleft--;
+										document.getElementById("hidecountdowntimer").textContent = timeleft;
+										if(timeleft <= 0)
+											clearInterval(downloadTimer);
+									},1000);
+
+								}
+								function h2count(){
+									var timeleft = 10;
+									var downloadTimer = setInterval(function(){
+										timeleft--;
+										document.getElementById("h2countdowntimer").textContent = timeleft;
+										if(timeleft <= 0)
+											clearInterval(downloadTimer);
+									},1000);
+
+								}
+								function uncheck() {
+									document.getElementById("ch").click()
+									if(document.getElementById("ch").checked==true){
+										document.getElementById("ch").click()
+									}
+								}
+
+								function disable() {
+									document.getElementById("disable").setAttribute('disabled','disabled');
+								}
+								function hide() {
+									document.getElementById("hidden").setAttribute('hidden','hidden');
+								}
+								function h2() {
+									document.getElementById("h2").innerText="Selenium Webdriver";
+								}
+
+
+							</script>
+						</body>
+
+						</html>
